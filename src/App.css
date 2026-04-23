@@ -316,10 +316,10 @@ textarea:focus { outline: none; border-color: #5a4e1a; }
   width: 100%;
   pointer-events: none;
   overflow: visible;
+  z-index: 100;
 }
 
 .pb-keyboard {
-  padding-top: 130px; /* space for cables above */
   display: flex;
   flex-direction: column;
   align-items: center;
