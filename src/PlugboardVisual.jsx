@@ -1,9 +1,9 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 
 const ALPHA = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-const ROW1  = 'QWERTYUIOP';
+const ROW1  = 'QWERTZUIOP';
 const ROW2  = 'ASDFGHJKL';
-const ROW3  = 'ZXCVBNM';
+const ROW3  = 'YXCVBNM';
 
 // 10 distinct cable colors
 const CABLE_COLORS = [
