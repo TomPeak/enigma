@@ -377,13 +377,13 @@ textarea:focus { outline: none; border-color: #5a4e1a; }
 /* small plug dot at bottom of socket */
 .pb-plug {
   position: absolute;
-  bottom: 3px;
+  bottom: -6px;
   left: 50%;
   transform: translateX(-50%);
-  width: 5px;
-  height: 5px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
-  opacity: 0.9;
+  border: 2px solid #3a3a28;
 }
 
 /* pair summary tags */
