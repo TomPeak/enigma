@@ -140,5 +140,6 @@ Die Antwort darauf liegt nicht im Code allein, sondern in der Struktur der Enigm
 Und genau diese Struktur wird in dieser Anwendung greifbar.
 
 ## Link
-https://enigma.tompeak.com Enigma Machine by Tom Peak
-https://de.wikipedia.org/wiki/Enigma_(Maschine)
+* https://enigma.tompeak.com Enigma 
+  Machine by Tom Peak
+* https://de.wikipedia.org/wiki/Enigma_(Maschine)
