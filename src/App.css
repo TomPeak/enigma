@@ -248,3 +248,167 @@ textarea:focus { outline: none; border-color: #5a4e1a; }
 @media (max-width: 500px) {
   .rotors-grid { grid-template-columns: 1fr; }
 }
+
+/* ── Plugboard Visual ───────────────────────────── */
+.pb-wrap {
+  background: #0d0d08;
+  border: 1px solid #3a3a28;
+  border-radius: 8px;
+  padding: 12px 14px;
+  user-select: none;
+}
+
+.pb-info-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  min-height: 24px;
+}
+
+.pb-stat {
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  padding: 2px 8px;
+  border-radius: 99px;
+  font-weight: 600;
+}
+.pb-stat.free  { background: #1a2a1a; color: #81C784; border: 1px solid #2a4a2a; }
+.pb-stat.used  { background: #2a2210; color: #EF9F27; border: 1px solid #4a3a18; }
+.pb-stat.pending { background: #2a1a00; color: #EF9F27; border: 1px solid #5a3a00; animation: pulse 1s ease-in-out infinite; }
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.5; }
+}
+
+.pb-hint {
+  font-size: 0.6rem;
+  color: #4a4a38;
+  letter-spacing: 0.05em;
+}
+
+.pb-reset {
+  margin-left: auto;
+  background: transparent;
+  border: 1px solid #3a2a2a;
+  border-radius: 4px;
+  color: #7a4a4a;
+  font-family: 'Courier New', monospace;
+  font-size: 0.6rem;
+  padding: 3px 8px;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  transition: all 0.15s;
+}
+.pb-reset:hover { background: #2a1a1a; color: #E57373; border-color: #5a3a3a; }
+
+/* Canvas: SVG on top, keyboard below */
+.pb-canvas-wrap {
+  position: relative;
+}
+
+.pb-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.pb-keyboard {
+  padding-top: 130px; /* space for cables above */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.pb-row {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+}
+
+.pb-socket {
+  width: 34px;
+  height: 34px;
+  border-radius: 6px;
+  border: 1px solid #3a3a28;
+  background: #141410;
+  color: #5a5a48;
+  font-family: 'Courier New', monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.12s;
+  flex-shrink: 0;
+}
+.pb-socket:hover {
+  background: #1e1e14;
+  color: #c8a83a;
+  border-color: #5a4e1a;
+}
+
+.pb-socket.pb-free {
+  color: #5a5a48;
+}
+
+.pb-socket.pb-connected {
+  background: #0a0a06;
+  font-weight: 800;
+}
+
+.pb-socket.pb-pending {
+  background: #2a1a00;
+  border-color: #EF9F27 !important;
+  color: #EF9F27 !important;
+  box-shadow: 0 0 8px rgba(239,159,39,0.4);
+  animation: pulse 0.8s ease-in-out infinite;
+}
+
+/* small plug dot at bottom of socket */
+.pb-plug {
+  position: absolute;
+  bottom: 3px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  opacity: 0.9;
+}
+
+/* pair summary tags */
+.pb-pairs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.pb-pair-tag {
+  font-family: 'Courier New', monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 4px;
+  border: 1px solid;
+  background: #0d0d08;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  transition: opacity 0.15s;
+}
+.pb-pair-tag:hover { opacity: 0.6; }
+
+@media (max-width: 500px) {
+  .pb-socket { width: 28px; height: 28px; font-size: 0.65rem; }
+  .pb-row    { gap: 3px; }
+}

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import RotorControl from './RotorControl.jsx';
+import PlugboardVisual from './PlugboardVisual.jsx';
 import { encrypt, group5, parsePlugboard, ci, ALPHA } from './enigma.js';
 import './App.css';
 
@@ -46,23 +47,8 @@ export default function App() {
       </section>
 
       <section>
-        <div className="section-title">
-          Steckerbrett — Plugboard
-          {plugCount > 0 && <span className="badge-small">{plugCount} Paar{plugCount > 1 ? 'e' : ''}</span>}
-        </div>
-        <input
-          className="plug-input"
-          placeholder="z.B. AB CD EF GH IJ (max. 10 Paare)"
-          value={plugboard}
-          onChange={e => setPlugboard(e.target.value)}
-        />
-        {plugList.length > 0 && (
-          <div className="plug-tags">
-            {plugList.map(([a, b]) => (
-              <span key={a + b} className="plug-tag">{a}↔{b}</span>
-            ))}
-          </div>
-        )}
+        <div className="section-title">Steckerbrett — Plugboard</div>
+        <PlugboardVisual value={plugboard} onChange={setPlugboard} />
       </section>
 
       <section>
