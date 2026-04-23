@@ -408,6 +408,46 @@ textarea:focus { outline: none; border-color: #5a4e1a; }
 }
 .pb-pair-tag:hover { opacity: 0.6; }
 
+.rotor-radio-group {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.rotor-radio {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 5px;
+  border: 1px solid #3a3a28;
+  background: #0d0d08;
+  color: #5a5a48;
+  font-family: 'Courier New', monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.12s;
+}
+
+.rotor-radio input[type="radio"] {
+  display: none;
+}
+
+.rotor-radio:hover {
+  border-color: #5a4e1a;
+  color: #c8a83a;
+  background: #1e1e14;
+}
+
+.rotor-radio-active {
+  background: #2e2a10;
+  border-color: #EF9F27;
+  color: #EF9F27;
+  box-shadow: 0 0 6px rgba(239,159,39,0.25);
+}
 @media (max-width: 500px) {
   .pb-socket { width: 28px; height: 28px; font-size: 0.65rem; }
   .pb-row    { gap: 3px; }

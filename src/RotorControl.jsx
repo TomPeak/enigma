@@ -10,10 +10,21 @@ export default function RotorControl({ label, rotor, pos, ring, onRotor, onPos, 
       <div className="rotor-letter">{pos}</div>
       <button className="rotor-btn" onClick={() => onPos(ci(ni(pos) - 1))}>▼</button>
 
-      <label className="field-label">Walze</label>
-      <select value={rotor} onChange={e => onRotor(e.target.value)}>
-        {ROTOR_NAMES.map(r => <option key={r} value={r}>Rotor {r}</option>)}
-      </select>
+    <label className="field-label">Walze</label>
+    <div className="rotor-radio-group">
+      {ROTOR_NAMES.map(r => (
+        <label key={r} className={`rotor-radio ${rotor === r ? 'rotor-radio-active' : ''}`}>
+          <input
+            type="radio"
+            name={`rotor-${label}`}
+            value={r}
+            checked={rotor === r}
+            onChange={() => onRotor(r)}
+          />
+          {r}
+        </label>
+      ))}
+    </div>
 
       <label className="field-label">Ringstellung</label>
       <select value={ring} onChange={e => onRing(e.target.value)}>
