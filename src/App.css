@@ -39,6 +39,45 @@
   border: 1px solid #5a4e1a;
 }
 
+.shuffle-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #0d0d08;
+  border: 1px solid #3a3a28;
+  border-radius: 8px;
+  padding: 10px 14px;
+}
+
+.shuffle-label {
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #7a7060;
+}
+
+.shuffle-btn {
+  padding: 5px 14px;
+  background: #2e2a10;
+  border: 1px solid #5a4e1a;
+  border-radius: 5px;
+  color: #c8a83a;
+  font-family: 'Courier New', monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.shuffle-btn:hover { background: #3e3a18; color: #EF9F27; border-color: #EF9F27; }
+
+.shuffle-hint {
+  font-size: 0.7rem;
+  font-family: 'Courier New', monospace;
+  color: #5a5040;
+  letter-spacing: 0.08em;
+  margin-left: auto;
+}
+
 .section-title {
   font-size: 0.65rem;
   letter-spacing: 0.15em;

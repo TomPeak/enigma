@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import RotorControl from './RotorControl.jsx';
 import PlugboardVisual from './PlugboardVisual.jsx';
-import { encrypt, group5, parsePlugboard, ci, ALPHA } from './enigma.js';
+import { encrypt, group5, parsePlugboard, ci, ALPHA, ROTOR_NAMES } from './enigma.js';
 import './App.css';
 
 const ni = ch => ch.charCodeAt(0) - 65;
@@ -13,6 +13,18 @@ export default function App() {
   const [plugboard, setPlugboard] = useState('');
   const [input, setInput]       = useState('');
   const [mode, setMode]         = useState('encrypt');
+
+  const shuffle = () => {
+    const pool = [...ROTOR_NAMES];
+    const picked = [];
+    for (let i = 0; i < 3; i++) {
+      const idx = Math.floor(Math.random() * pool.length);
+      picked.push(pool.splice(idx, 1)[0]);
+    }
+    setRotors(picked);
+    setStartPos([0, 0, 0].map(() => ALPHA[Math.floor(Math.random() * 26)]));
+    setRings([0, 0, 0].map(() => ALPHA[Math.floor(Math.random() * 26)]));
+  };
 
   const updateRotor = (i, v) => { const r = [...rotors]; r[i] = v; setRotors(r); };
   const updatePos   = (i, v) => { const p = [...startPos]; p[i] = v; setStartPos(p); };
@@ -33,6 +45,12 @@ export default function App() {
         <h1>ENIGMA MACHINE</h1>
         <span className="badge">Wehrmacht M3 · UKW-B</span>
       </header>
+
+      <div className="shuffle-box">
+        <span className="shuffle-label">Zufällige Einstellung</span>
+        <button className="shuffle-btn" onClick={shuffle}>⇌ Shuffle</button>
+        <span className="shuffle-hint">{rotors.join(' · ')} · {startPos.join('')} · {rings.join('')}</span>
+      </div>
 
       <section>
         <div className="section-title">Rotoren — Walzen</div>
