@@ -28,10 +28,10 @@ export function rotorBwd(wiring, sig, pos, ring) {
   return (inv - shift + 26) % 26;
 }
 
-export function stepRotors(pos, rotors) {
+export function stepRotors(pos, rotors, rotorData = ROTOR_DATA) {
   const p = [...pos];
-  const nm = ROTOR_DATA[rotors[1]].notch;
-  const nr = ROTOR_DATA[rotors[2]].notch;
+  const nm = rotorData[rotors[1]].notch;
+  const nr = rotorData[rotors[2]].notch;
   if (p[1] === nm) {
     p[0] = ci(ni(p[0]) + 1);
     p[1] = ci(ni(p[1]) + 1);
@@ -53,16 +53,16 @@ export function parsePlugboard(str) {
   return pairs;
 }
 
-export function encrypt(text, rotors, startPos, rings, plugStr) {
+export function encrypt(text, rotors, startPos, rings, plugStr, rotorData = ROTOR_DATA, reflector = REFLECTOR_B) {
   const plug = parsePlugboard(plugStr);
   let pos = [...startPos];
   return text.toUpperCase().split('').map(ch => {
     if (!ALPHA.includes(ch)) return '';
-    pos = stepRotors(pos, rotors);
+    pos = stepRotors(pos, rotors, rotorData);
     let s = ni(plug[ch] || ch);
-    for (let i = 2; i >= 0; i--) s = rotorFwd(ROTOR_DATA[rotors[i]].wiring, s, pos[i], rings[i]);
-    s = ni(REFLECTOR_B[s]);
-    for (let i = 0; i <= 2; i++) s = rotorBwd(ROTOR_DATA[rotors[i]].wiring, s, pos[i], rings[i]);
+    for (let i = 2; i >= 0; i--) s = rotorFwd(rotorData[rotors[i]].wiring, s, pos[i], rings[i]);
+    s = ni(reflector[s]);
+    for (let i = 0; i <= 2; i++) s = rotorBwd(rotorData[rotors[i]].wiring, s, pos[i], rings[i]);
     const out = ALPHA[s];
     return plug[out] || out;
   }).join('');

@@ -27,6 +27,21 @@
   color: #c8a83a;
   border: 1px solid #5a4e1a;
   letter-spacing: 0.05em;
+  transition: all 0.2s;
+}
+
+.badge-highlight {
+  background: #3e3410;
+  color: #FFC107;
+  border: 1px solid #EF9F27;
+  box-shadow: 0 0 8px rgba(255,193,7,0.25);
+  font-weight: 700;
+}
+
+.badge-dark {
+  background: #1a1810;
+  color: #7a7060;
+  border: 1px solid #3a3a28;
 }
 
 .badge-small {
@@ -487,7 +502,150 @@ textarea:focus { outline: none; border-color: #5a4e1a; }
   color: #EF9F27;
   box-shadow: 0 0 6px rgba(239,159,39,0.25);
 }
+
+.rotor-radio-disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  pointer-events: none;
+}
 @media (max-width: 500px) {
   .pb-socket { width: 28px; height: 28px; font-size: 0.65rem; }
   .pb-row    { gap: 3px; }
+}
+
+/* ── WiringBox ───────────────────────────── */
+.wiring-box {
+  background: #0d0d08;
+  border: 1px solid #3a3a28;
+  border-radius: 8px;
+  padding: 14px;
+}
+
+.wiring-box-hdr {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #2a2a1a;
+}
+
+.wiring-box-title {
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #7a7060;
+}
+
+.reset-btn {
+  padding: 5px 14px;
+  background: transparent;
+  border: 1px solid #3a2a2a;
+  border-radius: 5px;
+  color: #7a4a4a;
+  font-family: 'Courier New', monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.15s;
+  margin-left: auto;
+}
+.reset-btn:hover {
+  background: #2a1a1a;
+  color: #E57373;
+  border-color: #5a3a3a;
+}
+
+.wr-row {
+  margin-bottom: 10px;
+}
+
+.wr-row-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  color: #7a7060;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.wr-notch-badge {
+  font-size: 0.6rem;
+  padding: 2px 7px;
+  border-radius: 99px;
+  background: #2e2a10;
+  color: #EF9F27;
+  border: 1px solid #5a4e1a;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.wr-cells {
+  display: flex;
+  gap: 2px;
+  overflow-x: auto;
+  padding: 4px 0;
+}
+
+.wr-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 26px;
+  height: 42px;
+  background: #141410;
+  border: 1px solid #3a3a28;
+  border-radius: 4px;
+  padding: 3px;
+  transition: all 0.12s;
+}
+
+.wr-cell:hover {
+  background: #1e1e14;
+  border-color: #5a4e1a;
+}
+
+.wr-cell-notch {
+  background: #2a1a00;
+  border-color: #EF9F27;
+  box-shadow: 0 0 6px rgba(239,159,39,0.2);
+}
+
+.wr-src {
+  font-family: 'Courier New', monospace;
+  font-size: 0.65rem;
+  color: #5a5a48;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.wr-dst {
+  font-family: 'Courier New', monospace;
+  font-size: 0.75rem;
+  color: #EF9F27;
+  font-weight: 800;
+}
+
+.wr-cell-notch .wr-dst {
+  color: #FFC107;
+  text-shadow: 0 0 4px rgba(255,193,7,0.3);
+}
+
+@media (max-width: 768px) {
+  .wr-cells {
+    gap: 1px;
+  }
+  .wr-cell {
+    min-width: 22px;
+    height: 38px;
+  }
+  .wr-src {
+    font-size: 0.6rem;
+  }
+  .wr-dst {
+    font-size: 0.7rem;
+  }
 }
