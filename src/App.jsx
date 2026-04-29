@@ -42,7 +42,7 @@ export default function App() {
   return (
     <div className="app">
       <header className="app-header">
-        <h1>ENIGMA MACHINE</h1>
+        <h1>ENIGMA MACHINE V2.71</h1>
         <span className="badge">Wehrmacht M3 · UKW-B</span>
       </header>
 
